@@ -9,3 +9,12 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model serial {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(255) @unique
+  genre String?
+  platform String?
+  yearStart Int
+  yearEnd Int
+}
