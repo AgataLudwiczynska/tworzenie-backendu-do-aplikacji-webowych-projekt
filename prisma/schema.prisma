@@ -10,11 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model serial {
-  id Int @id @default(autoincrement())
-  name String @db.VarChar(255) @unique
-  genre String?
-  platform String?
+model Serial {
+  id        Int     @id @default(autoincrement())
+  name      String  @unique @db.VarChar(255)
+  genre     String?
+  platform  String?
   yearStart Int
-  yearEnd Int
+  yearEnd   Int
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  login    String @unique @db.VarChar(255)
+  password String
 }
