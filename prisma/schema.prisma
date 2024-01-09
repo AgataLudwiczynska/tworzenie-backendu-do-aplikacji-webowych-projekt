@@ -13,7 +13,8 @@ datasource db {
 model Serial {
   id        Int     @id @default(autoincrement())
   name      String  @unique @db.VarChar(255)
-  genre     String?
+  genre     Genre  @relation(fields: [genreId], references: [id])
+  genreId   Int
   platform  String?
   yearStart Int
   yearEnd   Int
@@ -23,4 +24,10 @@ model User {
   id       Int    @id @default(autoincrement())
   login    String @unique @db.VarChar(255)
   password String
+}
+
+model Genre {
+  id      Int      @id @default(autoincrement())
+  name    String   @unique @db.VarChar(255)
+  serials Serial[]
 }

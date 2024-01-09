@@ -17,7 +17,7 @@ exports.serials_add_new = async (req, res, next) => {
 		const newSerial = await prisma.serial.create({
 			data: {
 				name: req.body.name,
-				genre: req.body.genre,
+				genreId: req.body.genreId,
 				platform: req.body.platform,
 				yearStart: req.body.yearStart,
 				yearEnd: req.body.yearEnd,
@@ -53,7 +53,7 @@ exports.serials_update = async (req, res, next) => {
 		const updatedSerial = await prisma.serial.update({
 			data: {
 				name: req.body.name,
-				genre: req.body.genre,
+				genreId: req.body.genreId,
 				platform: req.body.platform,
 				yearStart: req.body.yearStart,
 				yearEnd: req.body.yearEnd,
